@@ -11,16 +11,14 @@ const blueKeys = document.querySelectorAll('.key.blue')
 keys.forEach(key => {
   key.addEventListener('click', () => playNote(key))
 })
-// notes = [
-//   {
-//     note: "a1",
-//     length:"eigths"
-//   }
-// ]
+
 notes=  []
 fetch("notes.json").then((res)=>
   notes = res.json()
 )
+
+console.log(notes)
+
 document.addEventListener('keydown', e => {
   if (e.repeat) return
   const key = e.key
