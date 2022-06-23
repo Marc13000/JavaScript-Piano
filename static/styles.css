@@ -26,6 +26,12 @@ body {
   border: 1px solid #333;
 }
 
+.blue {
+  --width: 100px;
+  background-color: lightblue;
+  border: 1px solid #333;
+}
+
 .white.active {
   background-color: #CCC;
 }

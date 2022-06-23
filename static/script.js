@@ -11,23 +11,16 @@ const blueKeys = document.querySelectorAll('.key.blue')
 keys.forEach(key => {
   key.addEventListener('click', () => playNote(key))
 })
-
-// Requiring fs module in which
-// readFile function is defined.
-const fs = require('fs')
-  
-// Reading data in utf-8 format
-// which is a type of character set.
-// Instead of 'utf-8' it can be 
-// other character set also like 'ascii'
-fs.readFile('Input.txt', 'utf-8', (err, data) => {
-    if (err) throw err;
-  
-    // Converting Raw Buffer to text
-    // data using tostring function.
-    console.log(data);
-})
-
+// notes = [
+//   {
+//     note: "a1",
+//     length:"eigths"
+//   }
+// ]
+notes=  []
+fetch("notes.json").then((res)=>
+  notes = res.json()
+)
 document.addEventListener('keydown', e => {
   if (e.repeat) return
   const key = e.key
@@ -44,6 +37,7 @@ function playNote(key) {
   const noteAudio = document.getElementById(key.dataset.note)
   noteAudio.currentTime = 0
   noteAudio.play()
+  
   // key.classList.add('active')
   // noteAudio.addEventListener('ended', () => {
   //   key.classList.remove('active')
