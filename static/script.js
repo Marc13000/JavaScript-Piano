@@ -12,12 +12,26 @@ keys.forEach(key => {
   key.addEventListener('click', () => playNote(key))
 })
 
-notes=  []
-fetch("notes.json").then((res)=>
-  notes = res.json()
-)
+async function fetchText(url){
+  const response = await fetch(url);
+  var data = await response.json();
+  for (let i = 0; i < data.length; i++) {
+    switch(data[i].note) {
+      case 'a0':
+      case 'a1':
+      case 'a2':
 
-console.log(notes)
+        break;
+      case 'b1':
+        // code block
+        break;
+      default:
+        console.log("key doesn't exist")
+    }
+  }
+}
+
+fetchText('notes.json')
 
 document.addEventListener('keydown', e => {
   if (e.repeat) return
