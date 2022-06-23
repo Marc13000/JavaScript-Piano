@@ -12,25 +12,21 @@ keys.forEach(key => {
   key.addEventListener('click', () => playNote(key))
 })
 
-function readTextFile(file)
-{
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                var allText = rawFile.responseText;
-                alert(allText);
-            }
-        }
-    }
-    rawFile.send(null);
-}
-
-readTextFile("file:///Users/marc13000/Documents/GitHub/JavaScript-PianoPlayer/Input.txt");
+// Requiring fs module in which
+// readFile function is defined.
+const fs = require('fs')
+  
+// Reading data in utf-8 format
+// which is a type of character set.
+// Instead of 'utf-8' it can be 
+// other character set also like 'ascii'
+fs.readFile('Input.txt', 'utf-8', (err, data) => {
+    if (err) throw err;
+  
+    // Converting Raw Buffer to text
+    // data using tostring function.
+    console.log(data);
+})
 
 document.addEventListener('keydown', e => {
   if (e.repeat) return
