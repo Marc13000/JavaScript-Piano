@@ -27,9 +27,7 @@ body {
 }
 
 .blue {
-  --width: 100px;
-  background-color: lightblue;
-  border: 1px solid #333;
+  background-color: lightblue !important;
 }
 
 .white.active {
