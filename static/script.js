@@ -1,3 +1,5 @@
+// const { waitForDebugger } = require("inspector")
+
 const WHITE_KEYS = ['z', 'x', 'c', 'v', 'b', 'n', 'm']
 const BLACK_KEYS = ['s', 'd', 'g', 'h', 'j']
 
@@ -21,7 +23,11 @@ async function fetchText(url, i){
   const response = await fetch(url);
   var data = await response.json();
   if(i < data.length) {
-    document.getElementById(data[i].note.charAt(0)).classList.add("blue");
+    document.getElementById("currKey").innerText = data[i].note;
+    document.getElementById(data[i].note).classList.add("blue");
+  }
+  else {
+    document.getElementById("currKey").innerText = "Well Played!";
   }
   // switch(data[i].note) {
   //   case 'a0':
@@ -59,6 +65,11 @@ async function playNote(key) {
   const noteAudio = document.getElementById(key.dataset.note)
   noteAudio.currentTime = 0
   noteAudio.play()
+  setInterval(function(){
+		if(noteAudio.currentTime>0.7){
+			noteAudio.pause();
+    }
+	},500);
   document.getElementById(key.dataset.val).classList.remove("blue");
   
   // key.classList.add('active')

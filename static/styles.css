@@ -3,8 +3,8 @@
 }
 
 body {
-  background-color: #143F6B;
   margin: 0;
+  background-color: #143F6B;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -21,7 +21,7 @@ body {
 }
 
 .white {
-  --width: 100px;
+  --width: 50px;
   background-color: white;
   border: 1px solid #333;
 }
@@ -35,7 +35,7 @@ body {
 }
 
 .black {
-  --width: 60px;
+  --width: 30px;
   background-color: black;
   margin-left: calc(var(--width) / -2);
   margin-right: calc(var(--width) / -2);
@@ -44,4 +44,13 @@ body {
 
 .black.active {
   background-color: #333;
+}
+
+#currKey {
+  position: absolute;
+  margin-bottom: 30%;
+  margin-left: -5%;
+  padding: 1%;
+  background-color:  #FFFFFF;
+  color: #143F6B;
 }

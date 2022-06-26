@@ -9,32 +9,83 @@
   <title>Piano</title>
 </head>
 <body>
+  <h1 id="currKey"></h1>
   <div class="piano">
-    <div data-note="C" data-val="c" id="c" class="key white"></div>
+    <div data-note="C1" data-val="c1" id="c1" class="key white"></div>
+    <div data-note="Cs1" class="key black"></div>
+    <div data-note="D1" data-val="d1" id="d1" class="key white"></div>
+    <div data-note="Ds1" class="key black"></div>
+    <div data-note="E1" data-val="e1" id="e1" class="key white"></div>
+    <div data-note="F1" data-val="f1" id="f1" class="key white"></div>
+    <div data-note="Fs1" class="key black"></div>
+    <div data-note="G1" data-val="g1" id="g1" class="key white"></div>
+    <div data-note="Gs1" class="key black"></div>
+    <div data-note="A1" data-val="a1" id="a1" class="key white"></div>
+    <div data-note="As1" class="key black"></div>
+    <div data-note="B1" data-val="b1" id="b1" class="key white"></div>
+    <div data-note="C2" data-val="c2" id="c2" class="key white"></div>
     <div data-note="Db" class="key black"></div>
-    <div data-note="D" data-val="d" id="d" class="key white"></div>
+    <div data-note="D2" data-val="d2" id="d2" class="key white"></div>
     <div data-note="Eb" class="key black"></div>
-    <div data-note="E" data-val="e" id="e" class="key white"></div>
-    <div data-note="F" data-val="f" id="f" class="key white"></div>
+    <div data-note="E2" data-val="e2" id="e2" class="key white"></div>
+    <div data-note="F2" data-val="f2" id="f2" class="key white"></div>
     <div data-note="Gb" class="key black"></div>
-    <div data-note="G" data-val="g" id="g" class="key white"></div>
+    <div data-note="G2" data-val="g2" id="g2" class="key white"></div>
     <div data-note="Ab" class="key black"></div>
-    <div data-note="A" data-val="a" id="a" class="key white"></div>
-    <div data-note="Bb" data-val="h" id ="h" class="key black"></div>
-    <div data-note="B" data-val="g" id="g" class="key white"></div>
+    <div data-note="A2" data-val="a2" id="a2" class="key white"></div>
+    <div data-note="As2" class="key black"></div>
+    <div data-note="B2" data-val="b2" id="b2" class="key white"></div>
+    <div data-note="C3" data-val="c3" id="c3" class="key white"></div>
+    <div data-note="Cs3" class="key black"></div>
+    <div data-note="D3" data-val="d3" id="d3" class="key white"></div>
+    <div data-note="Ds1" class="key black"></div>
+    <div data-note="E3" data-val="e3" id="e3" class="key white"></div>
+    <div data-note="F3" data-val="f3" id="f3" class="key white"></div>
+    <div data-note="Fs1" class="key black"></div>
+    <div data-note="G3" data-val="g3" id="g3" class="key white"></div>
+    <div data-note="Gs1" class="key black"></div>
+    <div data-note="A3" data-val="a3" id="a3" class="key white"></div>
+    <div data-note="As1" data-val="h3" id ="h3" class="key black"></div>
+    <div data-note="B3" data-val="b3" id="b3" class="key white"></div>
+    <div data-note="C4" data-val="c4" id="c4" class="key white"></div>
   </div>
 
-  <audio id="C" src="notes/C.mp3"></audio>
-  <audio id="Db" src="notes/Db.mp3"></audio>
-  <audio id="D" src="notes/D.mp3"></audio>
-  <audio id="Eb" src="notes/Eb.mp3"></audio>
-  <audio id="E" src="notes/E.mp3"></audio>
-  <audio id="F" src="notes/F.mp3"></audio>
-  <audio id="Gb" src="notes/Gb.mp3"></audio>
-  <audio id="G" src="notes/G.mp3"></audio>
-  <audio id="Ab" src="notes/Ab.mp3"></audio>
-  <audio id="A" src="notes/A.mp3"></audio>
-  <audio id="Bb" src="notes/Bb.mp3"></audio>
-  <audio id="B" src="notes/B.mp3"></audio>
+  <audio id="C1" src="notes/C3.ogg"></audio>
+  <audio id="Db" src="notes/Cs1.ogg"></audio>
+  <audio id="D1" src="notes/D3.ogg"></audio>
+  <audio id="Eb" src="notes/Ds1.ogg"></audio>
+  <audio id="E1" src="notes/E3.ogg"></audio>
+  <audio id="F1" src="notes/F3.ogg"></audio>
+  <audio id="Gb" src="notes/Fs1.ogg"></audio>
+  <audio id="G1" src="notes/G3.ogg"></audio>
+  <audio id="Ab" src="notes/Gs1.ogg"></audio>
+  <audio id="A1" src="notes/A3.ogg"></audio>
+  <audio id="As1" src="notes/As1.ogg"></audio>
+  <audio id="B1" src="notes/B3.ogg"></audio>
+  <audio id="C2" src="notes/C4.ogg"></audio>
+  <audio id="Db" src="notes/Cs2.ogg"></audio>
+  <audio id="D2" src="notes/D4.ogg"></audio>
+  <audio id="Eb" src="notes/Ds2.ogg"></audio>
+  <audio id="E2" src="notes/E4.ogg"></audio>
+  <audio id="F2" src="notes/F4.ogg"></audio>
+  <audio id="Gb" src="notes/Fs2.ogg"></audio>
+  <audio id="G2" src="notes/G4.ogg"></audio>
+  <audio id="Ab" src="notes/Gs2.ogg"></audio>
+  <audio id="A2" src="notes/A4.ogg"></audio>
+  <audio id="As2" src="notes/As2.ogg"></audio>
+  <audio id="B2" src="notes/B4.ogg"></audio>
+  <audio id="C3" src="notes/C5.ogg"></audio>
+  <audio id="Db" src="notes/Cs2.ogg"></audio>
+  <audio id="D3" src="notes/D5.ogg"></audio>
+  <audio id="Eb" src="notes/Ds2.ogg"></audio>
+  <audio id="E3" src="notes/E5.ogg"></audio>
+  <audio id="F3" src="notes/F5.ogg"></audio>
+  <audio id="Gb" src="notes/Fs2.ogg"></audio>
+  <audio id="G3" src="notes/G5.ogg"></audio>
+  <audio id="Ab" src="notes/Gs2.ogg"></audio>
+  <audio id="A3" src="notes/A5.ogg"></audio>
+  <audio id="Bb" src="notes/As2.ogg"></audio>
+  <audio id="B3" src="notes/B5.ogg"></audio>
+  <audio id="C4" src="notes/C6.ogg"></audio>
 </body>
 </html>
