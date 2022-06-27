@@ -11,10 +11,12 @@ const blackKeys = document.querySelectorAll('.key.black')
 const blueKeys = document.querySelectorAll('.key.blue')
 const c = document.getElementById('c')
 const ctx = c.getContext('2d')
-const img = document.getElementById('img')
-ctx.drawImage(img, 0, 0, 833, 328);
-ctx.canvas.width = 833
-ctx.canvas.height = 328
+let currentjson = "twi.json"
+let img = new Image();
+// const img = document.getElementById('img')
+// ctx.drawImage(img, 0, 0, 833, 328);
+// ctx.canvas.width = img.naturalWidth
+// ctx.canvas.height = img.naturalHeight
 keys.forEach(key => {
   key.addEventListener('click', () => {
     if (key.classList.contains("blue")) {
@@ -24,8 +26,41 @@ keys.forEach(key => {
   )
 })
 
-async function fetchText(url, i) {
-  const response = await fetch(url);
+const loadImage = src =>
+  new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  })  
+;
+document.getElementById("ode").addEventListener('click',async () => {
+  c.src = "ode.png"
+  img = await loadImage("ode.png");
+  ctx.canvas.width = img.naturalWidth
+  ctx.canvas.height = img.naturalHeight
+  ctx.drawImage(img, 0, 0, 833, 433);
+  console.log("ode", img.naturalHeight, img.naturalWidth)
+  fetchText( noteCt)
+  currentjson = "ode.json"
+
+})
+document.getElementById("twi").addEventListener('click',async () => {
+  c.src = "twi.png"
+  img = await loadImage("twi.png");
+  ctx.canvas.width = img.naturalWidth
+  ctx.canvas.height = img.naturalHeight
+  ctx.drawImage(img, 0, 0, 833, 433);
+
+  fetchText( noteCt)
+  currentjson = "twi.json"
+  console.log("twi", img.naturalHeight, img.naturalWidth)
+})
+
+
+
+async function fetchText( i) {
+  const response = await fetch(currentjson);
   var data = await response.json();
   if (i < data.length) {
     document.getElementById("currKey").innerText = data[i].note;
@@ -34,7 +69,7 @@ async function fetchText(url, i) {
     ctx.drawImage(img, 0, 0, 833, 328);
     ctx.beginPath();
     ctx.lineWidth = "2";
-    ctx.strokeStyle = "red";
+    ctx.strokeStyle = "#18dcff";
     const pos = data[i].position;
 
     console.log(pos[0], pos[1], 30, 50)
@@ -62,7 +97,7 @@ async function fetchText(url, i) {
   // }
 }
 var noteCt = 0
-fetchText('notes.json', noteCt)
+// fetchText('notes.json', noteCt)
 
 // document.addEventListener('keydown', e => {
 //   if (e.repeat) return
@@ -94,5 +129,5 @@ async function playNote(key) {
 
 
   noteCt++;
-  fetchText('notes.json', noteCt);
+  fetchText( noteCt);
 }
