@@ -9,22 +9,37 @@ const keys = document.querySelectorAll('.key')
 const whiteKeys = document.querySelectorAll('.key.white')
 const blackKeys = document.querySelectorAll('.key.black')
 const blueKeys = document.querySelectorAll('.key.blue')
-
+const c = document.getElementById('c')
+const ctx = c.getContext('2d')
+const img = document.getElementById('img')
+ctx.drawImage(img, 0, 0, 833, 328);
+ctx.canvas.width = 833
+ctx.canvas.height = 328
 keys.forEach(key => {
   key.addEventListener('click', () => {
-    if(key.classList.contains("blue")) {
+    if (key.classList.contains("blue")) {
       playNote(key);
     }
   }
-    )
+  )
 })
 
-async function fetchText(url, i){
+async function fetchText(url, i) {
   const response = await fetch(url);
   var data = await response.json();
-  if(i < data.length) {
+  if (i < data.length) {
     document.getElementById("currKey").innerText = data[i].note;
     document.getElementById(data[i].note).classList.add("blue");
+
+    ctx.drawImage(img, 0, 0, 833, 328);
+    ctx.beginPath();
+    ctx.lineWidth = "2";
+    ctx.strokeStyle = "red";
+    const pos = data[i].position;
+
+    console.log(pos[0], pos[1], 30, 50)
+    ctx.rect(pos[0]* 0.94, pos[1], 30, 50);
+    ctx.stroke();
   }
   else {
     document.getElementById("currKey").innerText = "Well Played!";
@@ -65,17 +80,19 @@ async function playNote(key) {
   const noteAudio = document.getElementById(key.dataset.note)
   noteAudio.currentTime = 0
   noteAudio.play()
-  setInterval(function(){
-		if(noteAudio.currentTime>0.7){
-			noteAudio.pause();
+  setInterval(function () {
+    if (noteAudio.currentTime > 0.7) {
+      noteAudio.pause();
     }
-	},500);
+  }, 500);
   document.getElementById(key.dataset.val).classList.remove("blue");
-  
+
   // key.classList.add('active')
   // noteAudio.addEventListener('ended', () => {
   //   key.classList.remove('active')
   // })
+
+
   noteCt++;
-  fetchText('notes.json',noteCt);
+  fetchText('notes.json', noteCt);
 }

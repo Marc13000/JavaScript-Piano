@@ -7,6 +7,7 @@ body {
   background-color: #143F6B;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -47,10 +48,14 @@ body {
 }
 
 #currKey {
-  position: absolute;
-  margin-bottom: 30%;
-  margin-left: -5%;
+  /* position: absolute; */
+  /* margin-bottom: 30%; */
+  /* margin-left: -5%; */
   padding: 1%;
   background-color:  #FFFFFF;
   color: #143F6B;
+}
+#c{
+  width: 833px;
+  height: 328px;
 }
